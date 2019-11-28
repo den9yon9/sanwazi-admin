@@ -15,7 +15,7 @@ export default {
                 let res = await axios({
                     method, url, params, data, headers
                 })
-                if (!res.data.success) throw new Error(res.data.msg)
+                if (!res.data.success) throw new Error(res.data.message)
                 return res.data.result
             } catch (err) {
                 alert(err.message)
@@ -26,6 +26,14 @@ export default {
         }
 
         Vue.prototype.$http = {
+            createUser(data) {
+                return request({
+                    method: 'post',
+                    url: '/users',
+                    data
+                })
+            },
+
             signin(data) {
                 return request({
                     method: 'post',
@@ -41,11 +49,9 @@ export default {
                 })
             },
 
-            createMenu(data) {
+            createMenu() {
                 return request({
-                    method: 'post',
                     url: '/weixin/offiaccount/createMenu',
-                    data
                 })
             },
 
@@ -56,8 +62,6 @@ export default {
                     data
                 })
             },
-
-
 
         }
     }
