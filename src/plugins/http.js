@@ -3,7 +3,7 @@ import axios from 'axios'
 export default {
     install(Vue) {
         // 不会变化的头参数
-        axios.defaults.baseURL = 'http://172t8v1421.imwork.net/sanwazi'
+        axios.defaults.baseURL = 'http://localhost/sanwazi'
         axios.defaults.headers.post['Content-Type'] = 'application/json';
         axios.defaults.withCredentials = true;
 
